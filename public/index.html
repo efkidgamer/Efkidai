@@ -5,13 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ChatBot</title>
   <style>
-body {
+    body {
   font-family: Arial, sans-serif;
   background-color: #f0f2f5;
 }
 
 .chat-container {
-  width: 300px;
+  width: 700px;
   margin: 50px auto;
   background-color: #fff;
   border: 1px solid #ddd;
@@ -28,13 +28,15 @@ body {
 .chat-messages {
   padding: 10px;
   overflow-y: auto;
-  max-height: 400px;
+  height: 400px;
+  
 }
 
 .message {
   margin-bottom: 10px;
   padding: 10px;
   border-radius: 10px;
+  word-break: break-word;
 }
 
 .user-message {
@@ -58,6 +60,9 @@ body {
   border: none;
   border-radius: 10px;
   font-size: 16px;
+  resize: vertical;
+  overflow-y: auto;
+  max-height: 100px;
 }
 
 #send-button {
@@ -72,7 +77,7 @@ body {
 #send-button:hover {
   background-color: #3e8e41;
 }
-</style>
+  </style>
 </head>
 <body>
   <div class="chat-container">
@@ -85,7 +90,7 @@ body {
       </div>
     </div>
     <div class="chat-input">
-      <input type="text" id="message-input" placeholder="Type a message...">
+      <textarea id="message-input" placeholder="Type a message..."></textarea>
       <button id="send-button">Send</button>
     </div>
   </div>
