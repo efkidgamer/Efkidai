@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Asta API Interface</title>
+</head>
+<body>
+  <h1>Asta API Interface</h1>
+  <form id="ask-form">
+    <label>Ask a question:</label>
+    <input type="text" id="question" name="question">
+    <button type="submit">Ask</button>
+  </form>
+  <div id="answer"></div>
+
+  <script>
+    const form = document.getElementById('ask-form');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const question = document.getElementById('question').value;
+      const response = await fetch('/ask', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ question }),
+      });
+      const data = await response.json();
+      document.getElementById('answer').innerText = data.answer;
+    });
+  </script>
+</body>
+</html>
