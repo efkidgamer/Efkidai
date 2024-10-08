@@ -4,7 +4,7 @@ const axios = require('axios');
 const app = express();
 const port = 8080;
 
-const groqApiKey = 'YOUR_GROQ_API_KEY';
+const groqApiKey = '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';
 const groqApiUrl = 'https://api.groq.co/v1-alpha/models/llama3-70b';
 
 app.use(express.json());
