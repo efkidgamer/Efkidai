@@ -4,7 +4,7 @@ const axios = require('axios');
 const app = express();
 const port = 8080;
 
-const googleAIStudioApiKey = 'AIzaSyBV64kCH5Li7ogUq7SS03cmT3k8sUlMm_M';
+const googleAIStudioApiKey = 'AIzaSyBG8KOscFLc-cGBid04NBk1MYQx4R2Wzp8';
 const googleAIStudioApiUrl = 'https://aistudio.googleapis.com/v1beta/projects/-/locations/-/models/-/deploy';
 
 app.use(express.json());
