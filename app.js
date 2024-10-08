@@ -15,7 +15,6 @@ if (!fs.existsSync(chatHistoryDir)) {
 }
 
 const apiKey = process.env.GROQ_API_KEY || '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';
-const chatHistoryDir = 'groqllama70b';
 const systemPrompt = "Your name is asta bot and you are created by Asta ichiyukimøri your answer to promps must be very creative";
 
 const groq = new Groq({ apiKey });
