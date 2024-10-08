@@ -5,78 +5,87 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ChatBot</title>
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+
     body {
-  font-family: Arial, sans-serif;
-  background-color: #f0f2f5;
-}
+      font-family: 'Pacifico', cursive;
+      background-color: #ffcccb; /* Light Coral */
+      color: #fff;
+    }
 
-.chat-container {
-  width: 700px;
-  margin: 50px auto;
-  background-color: #fff;
-  border: 1px solid #ddd;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
+    .chat-container {
+      width: 700px;
+      margin: 50px auto;
+      background: linear-gradient(45deg, #ff0066, #ffcc00, #33ccff); /* Mixed Bright Colors */
+      border: 1px solid #ddd;
+      border-radius: 15px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    }
 
-.chat-header {
-  background-color: #f0f2f5;
-  padding: 10px;
-  border-bottom: 1px solid #ddd;
-}
+    .chat-header {
+      background-color: #ff66cc; /* Hot Pink */
+      padding: 15px;
+      border-bottom: 2px solid #fff;
+      text-align: center;
+      color: #fff;
+    }
 
-.chat-messages {
-  padding: 10px;
-  overflow-y: auto;
-  height: 400px;
-  
-}
+    .chat-messages {
+      padding: 15px;
+      overflow-y: auto;
+      height: 400px;
+      background-color: #ffecb3; /* Light Golden Yellow */
+    }
 
-.message {
-  margin-bottom: 10px;
-  padding: 10px;
-  border-radius: 10px;
-  word-break: break-word;
-}
+    .message {
+      margin-bottom: 15px;
+      padding: 12px;
+      border-radius: 12px;
+      word-break: break-word;
+      color: #000;
+    }
 
-.user-message {
-  background-color: #f0f2f5;
-  align-self: flex-end;
-}
+    .user-message {
+      background-color: #ffcc80; /* Light Orange */
+      align-self: flex-end;
+    }
 
-.bot-message {
-  background-color: #ddd;
-}
+    .bot-message {
+      background-color: #99ffcc; /* Light Mint Green */
+    }
 
-.chat-input {
-  display: flex;
-  padding: 10px;
-  border-top: 1px solid #ddd;
-}
+    .chat-input {
+      display: flex;
+      padding: 15px;
+      background-color: #ff80ff; /* Bright Lavender */
+      border-top: 2px solid #fff;
+    }
 
-#message-input {
-  flex-grow: 1;
-  padding: 10px;
-  border: none;
-  border-radius: 10px;
-  font-size: 16px;
-  resize: vertical;
-  overflow-y: auto;
-  max-height: 100px;
-}
+    #message-input {
+      flex-grow: 1;
+      padding: 12px;
+      border: none;
+      border-radius: 12px;
+      font-size: 18px;
+      resize: vertical;
+      max-height: 120px;
+      background-color: #fff;
+      color: #000;
+    }
 
-#send-button {
-  background-color: #4CAF50;
-  color: #fff;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 10px;
-  cursor: pointer;
-}
+    #send-button {
+      background-color: #ff00ff; /* Bright Magenta */
+      color: #fff;
+      padding: 12px 25px;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      margin-left: 10px;
+    }
 
-#send-button:hover {
-  background-color: #3e8e41;
-}
+    #send-button:hover {
+      background-color: #cc00cc; /* Darker Magenta */
+    }
   </style>
 </head>
 <body>
@@ -100,7 +109,7 @@
     const sendButton = document.getElementById('send-button');
     const chatMessages = document.getElementById('chat-messages');
 
-    let uid = Math.random().toString(36).substr(2, 9); // Generate a random UID
+    let uid = Math.random().toString(36).substr(2, 9);
 
     sendButton.addEventListener('click', async () => {
       const message = messageInput.value.trim();
@@ -142,4 +151,4 @@
     });
   </script>
 </body>
-</html>
+  </html>
