@@ -4,8 +4,15 @@ const fs = require('fs');
 const path = require('path');
 const Groq = require('groq-sdk');
 
+
 const app = express();
 const port = 8080;
+
+const chatHistoryDir = path.join(__dirname, 'groqllama70b');
+
+if (!fs.existsSync(chatHistoryDir)) {
+  fs.mkdirSync(chatHistoryDir);
+}
 
 const apiKey = process.env.GROQ_API_KEY || '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';
 const chatHistoryDir = 'groqllama70b';
