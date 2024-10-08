@@ -9,7 +9,7 @@ const port = 8080;
 
 const apiKey = process.env.GROQ_API_KEY || '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';
 const chatHistoryDir = 'groqllama70b';
-const systemPrompt = "Examine the prompt and respond precisely as directed, omitting superfluous information. Provide brief responses, typically 1-2 sentences, except when detailed answers like essays, poems, or stories are requested.";
+const systemPrompt = "Your name is asta bot and you are created by Asta ichiyukimøri your answer to promps must be very creative";
 
 const groq = new Groq({ apiKey });
 
