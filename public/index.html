@@ -5,25 +5,25 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ChatBot</title>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 
     body {
-      font-family: 'Pacifico', cursive;
-      background-color: #ffcccb; /* Light Coral */
+      font-family: 'Roboto', sans-serif;
+      background-color: #007BFF; /* Bright Blue */
       color: #fff;
     }
 
     .chat-container {
       width: 700px;
       margin: 50px auto;
-      background: linear-gradient(45deg, #ff0066, #ffcc00, #33ccff); /* Mixed Bright Colors */
+      background-color: #ffffff; /* White */
       border: 1px solid #ddd;
       border-radius: 15px;
       box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
     }
 
     .chat-header {
-      background-color: #ff66cc; /* Hot Pink */
+      background-color: #0056b3; /* Dark Blue */
       padding: 15px;
       border-bottom: 2px solid #fff;
       text-align: center;
@@ -34,7 +34,8 @@
       padding: 15px;
       overflow-y: auto;
       height: 400px;
-      background-color: #ffecb3; /* Light Golden Yellow */
+      background-color: #e9ecef; /* Light Grey */
+      color: #000;
     }
 
     .message {
@@ -42,22 +43,21 @@
       padding: 12px;
       border-radius: 12px;
       word-break: break-word;
-      color: #000;
     }
 
     .user-message {
-      background-color: #ffcc80; /* Light Orange */
+      background-color: #cce5ff; /* Light Blue */
       align-self: flex-end;
     }
 
     .bot-message {
-      background-color: #99ffcc; /* Light Mint Green */
+      background-color: #d4edda; /* Light Green */
     }
 
     .chat-input {
       display: flex;
       padding: 15px;
-      background-color: #ff80ff; /* Bright Lavender */
+      background-color: #0056b3; /* Dark Blue */
       border-top: 2px solid #fff;
     }
 
@@ -66,7 +66,7 @@
       padding: 12px;
       border: none;
       border-radius: 12px;
-      font-size: 18px;
+      font-size: 16px;
       resize: vertical;
       max-height: 120px;
       background-color: #fff;
@@ -74,7 +74,7 @@
     }
 
     #send-button {
-      background-color: #ff00ff; /* Bright Magenta */
+      background-color: #28a745; /* Green */
       color: #fff;
       padding: 12px 25px;
       border: none;
@@ -84,7 +84,7 @@
     }
 
     #send-button:hover {
-      background-color: #cc00cc; /* Darker Magenta */
+      background-color: #218838; /* Darker Green */
     }
   </style>
 </head>
@@ -151,4 +151,4 @@
     });
   </script>
 </body>
-  </html>
+    </html>
