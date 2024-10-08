@@ -82,7 +82,7 @@
 <body>
   <div class="chat-container">
     <div class="chat-header">
-      <h2>ChatBot</h2>
+      <h2>AstaBot</h2>
     </div>
     <div class="chat-messages" id="chat-messages">
       <div class="message bot-message">
@@ -97,76 +97,49 @@
 
   <script>
     const messageInput = document.getElementById('message-input');
-const sendButton = document.getElementById('send-button');
-const chatMessages = document.getElementById('chat-messages');
+    const sendButton = document.getElementById('send-button');
+    const chatMessages = document.getElementById('chat-messages');
 
-let chatHistory = [];
+    let uid = Math.random().toString(36).substr(2, 9); // Generate a random UID
 
-sendButton.addEventListener('click', async () => {
-  const message = messageInput.value.trim();
-  if (message) {
-    const messageElement = document.createElement('div');
-    messageElement.classList.add('message', 'user-message');
-    messageElement.innerHTML = `<span>${message}</span>`;
-    chatMessages.appendChild(messageElement);
+    sendButton.addEventListener('click', async () => {
+      const message = messageInput.value.trim();
+      if (message) {
+        const messageElement = document.createElement('div');
+        messageElement.classList.add('message', 'user-message');
+        messageElement.innerHTML = `<span>${message}</span>`;
+        chatMessages.appendChild(messageElement);
 
-    try {
-      const response = await fetch('/ask', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ question: message }),
-      });
-      const data = await response.json();
-      const botMessage = document.createElement('div');
-      botMessage.classList.add('message', 'bot-message');
-      botMessage.innerHTML = `<span>${data.answer}</span>`;
-      chatMessages.appendChild(botMessage);
+        try {
+          const response = await fetch('/ask', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ question: message, uid: uid }),
+          });
+          const data = await response.json();
+          const botMessage = document.createElement('div');
+          botMessage.classList.add('message', 'bot-message');
+          botMessage.innerHTML = `<span>${data.answer}</span>`;
+          chatMessages.appendChild(botMessage);
 
-      // Update chat history
-      chatHistory.push({
-        user: message,
-        bot: data.answer,
-      });
+          chatMessages.scrollTop = chatMessages.scrollHeight;
+        } catch (error) {
+          console.error('Error:', error);
+          const botMessage = document.createElement('div');
+          botMessage.classList.add('message', 'bot-message');
+          botMessage.innerHTML = `<span>Error: Failed to retrieve answer</span>`;
+          chatMessages.appendChild(botMessage);
+        }
 
-      chatMessages.scrollTop = chatMessages.scrollHeight;
-    } catch (error) {
-      console.error('Error:', error);
-      const botMessage = document.createElement('div');
-      botMessage.classList.add('message', 'bot-message');
-      botMessage.innerHTML = `<span>Error: Failed to retrieve answer</span>`;
-      chatMessages.appendChild(botMessage);
+        messageInput.value = '';
+      }
+    });
 
-      // Update chat history with error
-      chatHistory.push({
-        user: message,
-        bot: 'Error: Failed to retrieve answer',
-      });
-    }
-
-    messageInput.value = '';
-  }
-});
-
-messageInput.addEventListener('keypress', (e) => {
-  if (e.key === 'Enter') {
-    sendButton.click();
-  }
-});
-
-// Load chat history on page load
-window.onload = () => {
-  chatHistory.forEach((entry) => {
-    const userMessage = document.createElement('div');
-    userMessage.classList.add('message', 'user-message');
-    userMessage.innerHTML = `<span>${entry.user}</span>`;
-    chatMessages.appendChild(userMessage);
-
-    const botMessage = document.createElement('div');
-    botMessage.classList.add('message', 'bot-message');
-    botMessage.innerHTML = `<span>${entry.bot}</span>`;
-    chatMessages.appendChild(botMessage);
-  });
-};
+    messageInput.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') {
+        sendButton.click();
+      }
+    });
   </script>
 </body>
 </html>
