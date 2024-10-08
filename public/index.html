@@ -97,51 +97,76 @@
 
   <script>
     const messageInput = document.getElementById('message-input');
-    const sendButton = document.getElementById('send-button');
-    const chatMessages = document.getElementById('chat-messages');
+const sendButton = document.getElementById('send-button');
+const chatMessages = document.getElementById('chat-messages');
 
-    let chatHistory = [];
+let chatHistory = [];
 
-    fetch('/chat-history')
-      .then(response => response.json())
-      .then(data => {
-        chatHistory = data.chatHistory;
-        updateChatHistory();
+sendButton.addEventListener('click', async () => {
+  const message = messageInput.value.trim();
+  if (message) {
+    const messageElement = document.createElement('div');
+    messageElement.classList.add('message', 'user-message');
+    messageElement.innerHTML = `<span>${message}</span>`;
+    chatMessages.appendChild(messageElement);
+
+    try {
+      const response = await fetch('/ask', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ question: message }),
+      });
+      const data = await response.json();
+      const botMessage = document.createElement('div');
+      botMessage.classList.add('message', 'bot-message');
+      botMessage.innerHTML = `<span>${data.answer}</span>`;
+      chatMessages.appendChild(botMessage);
+
+      // Update chat history
+      chatHistory.push({
+        user: message,
+        bot: data.answer,
       });
 
-    sendButton.addEventListener('click', async () => {
-      const message = messageInput.value.trim();
-      if (message) {
-        const response = await fetch('/ask', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ question: message }),
-        });
-        const data = await response.json();
-        chatHistory = data.chatHistory;
-        updateChatHistory();
-        messageInput.value = '';
-      }
-    });
+      chatMessages.scrollTop = chatMessages.scrollHeight;
+    } catch (error) {
+      console.error('Error:', error);
+      const botMessage = document.createElement('div');
+      botMessage.classList.add('message', 'bot-message');
+      botMessage.innerHTML = `<span>Error: Failed to retrieve answer</span>`;
+      chatMessages.appendChild(botMessage);
 
-    messageInput.addEventListener('keypress', (e) => {
-      if (e.key === 'Enter') {
-        sendButton.click();
-      }
-    });
-
-    function updateChatHistory() {
-      chatMessages.innerHTML = '';
-      chatHistory.forEach((entry) => {
-        const messageElement = document.createElement('div');
-        messageElement.classList.add('message');
-        messageElement.innerHTML = `
-          <span class="question">${entry.question}</span>
-          <span class="answer">${entry.answer}</span>
-        `;
-        chatMessages.appendChild(messageElement);
+      // Update chat history with error
+      chatHistory.push({
+        user: message,
+        bot: 'Error: Failed to retrieve answer',
       });
     }
+
+    messageInput.value = '';
+  }
+});
+
+messageInput.addEventListener('keypress', (e) => {
+  if (e.key === 'Enter') {
+    sendButton.click();
+  }
+});
+
+// Load chat history on page load
+window.onload = () => {
+  chatHistory.forEach((entry) => {
+    const userMessage = document.createElement('div');
+    userMessage.classList.add('message', 'user-message');
+    userMessage.innerHTML = `<span>${entry.user}</span>`;
+    chatMessages.appendChild(userMessage);
+
+    const botMessage = document.createElement('div');
+    botMessage.classList.add('message', 'bot-message');
+    botMessage.innerHTML = `<span>${entry.bot}</span>`;
+    chatMessages.appendChild(botMessage);
+  });
+};
   </script>
 </body>
 </html>
