@@ -15,7 +15,7 @@ if (!fs.existsSync(chatHistoryDir)) {
 }
 
 const apiKey = process.env.GROQ_API_KEY || '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';
-const systemPrompt = "Your name is nexus ai and you are created by nexus devs your answer to promps must be very creative";
+const systemPrompt = "Your name is ÃƳÃÑFÊ🖤🥀❣️ and you are created by ÃƳÃÑFÊ your answer to promps must be cool and friendly";
 
 const groq = new Groq({ apiKey });
 
