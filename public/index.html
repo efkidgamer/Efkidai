@@ -3,88 +3,127 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ChatBot</title>
+  <title>Ãƴãñfê Ãî</title>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
-
     body {
-      font-family: 'Roboto', sans-serif;
-      background-color: #007BFF; /* Bright Blue */
+      font-family: Arial, sans-serif;
+      background-color: #0e0324;
       color: #fff;
     }
 
     .chat-container {
       width: 700px;
       margin: 50px auto;
-      background-color: #ffffff; /* White */
-      border: 1px solid #ddd;
-      border-radius: 15px;
-      box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+      background-color: #120035;
+      border: 1px solid #2b2b40;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     }
 
     .chat-header {
-      background-color: #0056b3; /* Dark Blue */
-      padding: 15px;
-      border-bottom: 2px solid #fff;
+      background-color: #120035;
+      padding: 20px;
+      border-bottom: 1px solid #2b2b40;
       text-align: center;
       color: #fff;
     }
 
+    .chat-header h2 {
+      margin: 0;
+      font-size: 24px;
+      font-weight: bold;
+      color: #e4e4e7;
+    }
+
     .chat-messages {
-      padding: 15px;
-      overflow-y: auto;
+      padding: 20px;
       height: 400px;
-      background-color: #e9ecef; /* Light Grey */
-      color: #000;
+      overflow-y: auto;
+      background-color: #0e0324;
+      color: #fff;
     }
 
     .message {
       margin-bottom: 15px;
-      padding: 12px;
-      border-radius: 12px;
+      padding: 10px;
+      border-radius: 10px;
       word-break: break-word;
+      max-width: 80%;
+      position: relative;
     }
 
     .user-message {
-      background-color: #cce5ff; /* Light Blue */
+      background-color: #390065;
+      color: #fff;
       align-self: flex-end;
+      text-align: right;
+      margin-left: auto;
     }
 
     .bot-message {
-      background-color: #d4edda; /* Light Green */
+      background-color: #4b006f;
+      color: #fff;
+      text-align: left;
+    }
+
+    .copy-button {
+      position: absolute;
+      right: -30px;
+      top: 10px;
+      background-color: #ff00ff;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      padding: 5px;
+      font-size: 12px;
+    }
+
+    .copy-button:hover {
+      background-color: #d900d9;
     }
 
     .chat-input {
       display: flex;
       padding: 15px;
-      background-color: #0056b3; /* Dark Blue */
-      border-top: 2px solid #fff;
+      background-color: #120035;
+      border-top: 1px solid #2b2b40;
     }
 
     #message-input {
       flex-grow: 1;
-      padding: 12px;
+      padding: 10px;
+      border-radius: 10px;
+      background-color: #1b0a43;
+      color: #fff;
       border: none;
-      border-radius: 12px;
       font-size: 16px;
-      resize: vertical;
-      max-height: 120px;
-      background-color: #fff;
-      color: #000;
+      resize: none;
+      max-height: 100px;
     }
 
     #send-button {
-      background-color: #28a745; /* Green */
+      background-color: #ff00ff;
       color: #fff;
-      padding: 12px 25px;
+      padding: 10px 20px;
       border: none;
-      border-radius: 12px;
+      border-radius: 10px;
       cursor: pointer;
       margin-left: 10px;
     }
 
     #send-button:hover {
-      background-color: #218838; /* Darker Green */
+      background-color: #d900d9;
+    }
+
+    /* Scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: #57007f;
+      border-radius: 10px;
     }
   </style>
 </head>
@@ -96,6 +135,7 @@
     <div class="chat-messages" id="chat-messages">
       <div class="message bot-message">
         <span>Hello! How can I assist you today?</span>
+        <button class="copy-button" onclick="copyMessage(this)">Copy</button>
       </div>
     </div>
     <div class="chat-input">
@@ -109,7 +149,7 @@
     const sendButton = document.getElementById('send-button');
     const chatMessages = document.getElementById('chat-messages');
 
-    let uid = Math.random().toString(36).substr(2, 9);
+    let uid = Math.random().toString(36).substr(2, 9); // Generate a random UID
 
     sendButton.addEventListener('click', async () => {
       const message = messageInput.value.trim();
@@ -128,7 +168,7 @@
           const data = await response.json();
           const botMessage = document.createElement('div');
           botMessage.classList.add('message', 'bot-message');
-          botMessage.innerHTML = `<span>${data.answer}</span>`;
+          botMessage.innerHTML = `<span>${data.answer}</span><button class="copy-button" onclick="copyMessage(this)">Copy</button>`;
           chatMessages.appendChild(botMessage);
 
           chatMessages.scrollTop = chatMessages.scrollHeight;
@@ -136,7 +176,7 @@
           console.error('Error:', error);
           const botMessage = document.createElement('div');
           botMessage.classList.add('message', 'bot-message');
-          botMessage.innerHTML = `<span>Error: Failed to retrieve answer</span>`;
+          botMessage.innerHTML = `<span>Error: Failed to retrieve answer</span><button class="copy-button" onclick="copyMessage(this)">Copy</button>`;
           chatMessages.appendChild(botMessage);
         }
 
@@ -149,6 +189,13 @@
         sendButton.click();
       }
     });
+
+    function copyMessage(button) {
+      const messageText = button.previousElementSibling.innerText;
+      navigator.clipboard.writeText(messageText).then(() => {
+        alert('Message copied to clipboard');
+      });
+    }
   </script>
 </body>
-    </html>
+</html
