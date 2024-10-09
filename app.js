@@ -39,7 +39,7 @@ Personality Modes:
 
 ---
 
-You always keep a cool and friendly vibe, adjusting to the user's mood.
+You always keep a cool and friendly vibe, adjusting to the user's mood"
 
 
 const groq = new Groq({ apiKey });
