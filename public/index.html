@@ -10,18 +10,23 @@
       background-image: url('https://i.imgur.com/47KnbfN.jpeg'); /* Your image as background */
       background-size: cover;
       background-position: center;
-      color: #fff;
       margin: 0;
       padding: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
 
     .chat-container {
       width: 700px;
-      margin: 50px auto;
       background-color: rgba(18, 0, 53, 0.8); /* Adding transparency to the chat container */
       border: 1px solid #2b2b40;
       border-radius: 10px;
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+      display: flex;
+      flex-direction: column;
+      height: 80vh;
     }
 
     .chat-header {
@@ -41,10 +46,14 @@
 
     .chat-messages {
       padding: 20px;
-      height: 400px;
+      flex-grow: 1;
       overflow-y: auto;
-      background-color: rgba(14, 3, 36, 0.7); /* Transparent background */
+      background-color: rgba(14, 3, 36, 0.7); /* Transparent background inside chat */
       color: #fff;
+      background-image: url('https://i.imgur.com/47KnbfN.jpeg'); /* Background image inside chat */
+      background-size: cover;
+      background-position: center;
+      border-radius: 0 0 10px 10px;
     }
 
     .message {
@@ -134,7 +143,7 @@
 <body>
   <div class="chat-container">
     <div class="chat-header">
-      <h2>Ñêxûṣ Ɗêvṣ Têãm</h2>
+      <h2>ÃƳÃÑFÊ❣️🖤🥀</h2>
     </div>
     <div class="chat-messages" id="chat-messages">
       <div class="message bot-message">
