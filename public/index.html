@@ -98,6 +98,7 @@
 
     .chat-input {
       display: flex;
+      flex-direction: column;
       padding: 15px;
       background-color: rgba(18, 0, 53, 0.9);
       border-top: 1px solid #2b2b40;
@@ -113,6 +114,7 @@
       font-size: 16px;
       resize: none;
       max-height: 100px;
+      margin-bottom: 10px;
     }
 
     #send-button {
@@ -138,6 +140,11 @@
       background: #57007f;
       border-radius: 10px;
     }
+    
+    #file-input {
+      color: white;
+      margin-bottom: 10px;
+    }
   </style>
 </head>
 <body>
@@ -153,6 +160,7 @@
     </div>
     <div class="chat-input">
       <textarea id="message-input" placeholder="Type a message..."></textarea>
+      <input type="file" id="file-input" accept="image/*">
       <button id="send-button">Send</button>
     </div>
   </div>
@@ -161,22 +169,31 @@
     const messageInput = document.getElementById('message-input');
     const sendButton = document.getElementById('send-button');
     const chatMessages = document.getElementById('chat-messages');
+    const fileInput = document.getElementById('file-input');
 
     let uid = Math.random().toString(36).substr(2, 9); // Generate a random UID
 
     sendButton.addEventListener('click', async () => {
       const message = messageInput.value.trim();
-      if (message) {
+      const file = fileInput.files[0];
+
+      if (message || file) {
         const messageElement = document.createElement('div');
         messageElement.classList.add('message', 'user-message');
         messageElement.innerHTML = `<span>${message}</span>`;
         chatMessages.appendChild(messageElement);
 
+        const formData = new FormData();
+        formData.append('question', message);
+        formData.append('uid', uid);
+        if (file) {
+          formData.append('file', file);
+        }
+
         try {
           const response = await fetch('/ask', {
             method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ question: message, uid: uid }),
+            body: formData
           });
           const data = await response.json();
           const botMessage = document.createElement('div');
@@ -194,6 +211,7 @@
         }
 
         messageInput.value = '';
+        fileInput.value = ''; // Reset file input
       }
     });
 
@@ -211,4 +229,4 @@
     }
   </script>
 </body>
-</html>
+  </html>
