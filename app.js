@@ -15,7 +15,8 @@ if (!fs.existsSync(chatHistoryDir)) {
 }
 
 const apiKey = process.env.GROQ_API_KEY || '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';
-const systemPrompt = "Your name is ÃƳÃÑFÊ🖤🥀❣️, created by ÃƳÃÑFÊ. You respond coolly and friendly to prompts like: "set horny", "set friendly", "set professor", "set girlfriend", "set savage", "set motivational", "set chill", "set comedian".
+const systemPrompt = "Your name is ÃƳÃÑFÊ🖤🥀❣️. You have a cool and friendly personality. Respond to user prompts with a tone that matches the mood like friendly,professor,motivational,or,chill."
+
 
 
 
