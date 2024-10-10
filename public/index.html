@@ -7,7 +7,7 @@
   <style>
     body {
       font-family: Arial, sans-serif;
-      background-image: url('https://i.imgur.com/47KnbfN.jpeg'); /* Your image as background */
+      background-image: url('https://i.imgur.com/47KnbfN.jpeg');
       background-size: cover;
       background-position: center;
       margin: 0;
@@ -20,7 +20,7 @@
 
     .chat-container {
       width: 700px;
-      background-color: rgba(18, 0, 53, 0.8); /* Adding transparency to the chat container */
+      background-color: rgba(18, 0, 53, 0.8);
       border: 1px solid #2b2b40;
       border-radius: 10px;
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
@@ -48,9 +48,9 @@
       padding: 20px;
       flex-grow: 1;
       overflow-y: auto;
-      background-color: rgba(14, 3, 36, 0.7); /* Transparent background inside chat */
+      background-color: rgba(14, 3, 36, 0.7);
       color: #fff;
-      background-image: url('https://i.imgur.com/47KnbfN.jpeg'); /* Background image inside chat */
+      background-image: url('https://i.imgur.com/47KnbfN.jpeg');
       background-size: cover;
       background-position: center;
       border-radius: 0 0 10px 10px;
@@ -79,6 +79,12 @@
       text-align: left;
     }
 
+    .bot-image {
+      max-width: 100%;
+      height: auto;
+      border-radius: 10px;
+    }
+
     .copy-button {
       position: absolute;
       right: -30px;
@@ -98,6 +104,7 @@
 
     .chat-input {
       display: flex;
+      flex-direction: column;
       padding: 15px;
       background-color: rgba(18, 0, 53, 0.9);
       border-top: 1px solid #2b2b40;
@@ -113,6 +120,7 @@
       font-size: 16px;
       resize: none;
       max-height: 100px;
+      margin-bottom: 10px;
     }
 
     #send-button {
@@ -122,7 +130,6 @@
       border: none;
       border-radius: 10px;
       cursor: pointer;
-      margin-left: 10px;
     }
 
     #send-button:hover {
@@ -181,7 +188,14 @@
           const data = await response.json();
           const botMessage = document.createElement('div');
           botMessage.classList.add('message', 'bot-message');
-          botMessage.innerHTML = `<span>${data.answer}</span><button class="copy-button" onclick="copyMessage(this)">Copy</button>`;
+          
+          // Check if the response contains an image URL
+          if (data.imageUrl) {
+            botMessage.innerHTML = `<span>Here is an image:</span><br><img src="${data.imageUrl}" class="bot-image"/><button class="copy-button" onclick="copyMessage(this)">Copy</button>`;
+          } else {
+            botMessage.innerHTML = `<span>${data.answer}</span><button class="copy-button" onclick="copyMessage(this)">Copy</button>`;
+          }
+          
           chatMessages.appendChild(botMessage);
 
           chatMessages.scrollTop = chatMessages.scrollHeight;
