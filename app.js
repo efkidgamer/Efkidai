@@ -116,6 +116,5 @@ app.get('/', (req, res) => {
 });
 
 app.listen(port, () => {
-  console.log(`Asta is running on port ${port}`);
+  console.log(`EFKID CHATBOT is running on port ${port}`);
 });
-Make this to connect to flux API endpoint when someone type imagine or generate so and should send back the image generated don't add comments
