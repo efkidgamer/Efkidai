@@ -1,4 +1,3 @@
-
 const express = require('express');
 const axios = require('axios');
 const fs = require('fs');
@@ -8,7 +7,7 @@ const Groq = require('groq-sdk');
 const app = express();
 const port = 8080;
 const chatHistoryDir = path.join(__dirname, 'groqllama70b');
-const fluxApiUrl = '(https://www.samirxpikachu${a}.place/arcticfl?prompt=)';
+const fluxApiUrl = '(https://www.samirxpikachu${a}.place/arcticfl?prompt)';
 
 if (!fs.existsSync(chatHistoryDir)) {
   fs.mkdirSync(chatHistoryDir);
