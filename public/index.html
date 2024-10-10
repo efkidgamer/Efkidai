@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AYANFE AI🦋🖤❣️💜</title>
+  <title>AYANFE AI🦋🖤❣️🌹</title>
   <style>
     body {
       font-family: Arial, sans-serif;
-      background-image: url('https://i.imgur.com/47KnbfN.jpeg'); /* Background image */
+      background-image: url('https://i.imgur.com/47KnbfN.jpeg');
       background-size: cover;
       background-position: center;
       margin: 0;
@@ -50,6 +50,7 @@
       overflow-y: auto;
       background-color: rgba(14, 3, 36, 0.7);
       color: #fff;
+      border-radius: 0 0 10px 10px;
     }
 
     .message {
@@ -107,12 +108,22 @@
     #send-button:hover {
       background-color: #d900d9;
     }
+
+    /* Scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: #57007f;
+      border-radius: 10px;
+    }
   </style>
 </head>
 <body>
   <div class="chat-container">
     <div class="chat-header">
-      <h2>AYANFE AI🦋🖤❣️💜</h2>
+      <h2>AYANFE AI🦋🖤❣️🌹</h2>
     </div>
     <div class="chat-messages" id="chat-messages">
       <div class="message bot-message">
@@ -129,61 +140,50 @@
     const messageInput = document.getElementById('message-input');
     const sendButton = document.getElementById('send-button');
     const chatMessages = document.getElementById('chat-messages');
+
     let uid = Math.random().toString(36).substr(2, 9); // Generate a random UID
 
     sendButton.addEventListener('click', async () => {
       const message = messageInput.value.trim();
       if (message) {
-        // Append user's message to the chat
-        const messageElement = document.createElement('div');
-        messageElement.classList.add('message', 'user-message');
-        messageElement.innerHTML = `<span>${message}</span>`;
-        chatMessages.appendChild(messageElement);
+        // Display user's message
+        const userMessageElement = document.createElement('div');
+        userMessageElement.className = 'message user-message';
+        userMessageElement.innerText = message;
+        chatMessages.appendChild(userMessageElement);
         chatMessages.scrollTop = chatMessages.scrollHeight; // Scroll to bottom
 
+        messageInput.value = ''; // Clear input
+
+        // Send the message to the server
         try {
-          // Send the message to the server
           const response = await fetch('/ask', {
             method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ question: message, uid: uid }),
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ question: message, uid })
           });
           const data = await response.json();
 
-          // Append bot's message or image response to the chat
-          const botMessage = document.createElement('div');
-          botMessage.classList.add('message', 'bot-message');
+          // Display bot's response
+          const botMessageElement = document.createElement('div');
+          botMessageElement.className = 'message bot-message';
+          botMessageElement.innerHTML = data.answer;
 
+          // Check if an image URL is returned
           if (data.imageUrl) {
-            botMessage.innerHTML = `
-              <span>Here is the generated image:</span>
-              <img src="${data.imageUrl}" alt="Generated Image" style="max-width: 100%; border-radius: 10px; margin-top: 10px;">
-            `;
-          } else {
-            botMessage.innerHTML = `<span>${data.answer}</span>`;
+            botMessageElement.innerHTML += `<br><img src="${data.imageUrl}" alt="Generated Image" style="max-width:100%;border-radius:10px;margin-top:5px;">`;
           }
 
-          chatMessages.appendChild(botMessage);
+          chatMessages.appendChild(botMessageElement);
           chatMessages.scrollTop = chatMessages.scrollHeight; // Scroll to bottom
+
         } catch (error) {
-          console.error('Error:', error);
-          const errorMessage = document.createElement('div');
-          errorMessage.classList.add('message', 'bot-message');
-          errorMessage.innerHTML = `<span>Error: Failed to retrieve the response.</span>`;
-          chatMessages.appendChild(errorMessage);
+          console.error('Error sending message:', error);
         }
-
-        messageInput.value = ''; // Clear input field
-      }
-    });
-
-    // Allow sending messages by pressing Enter
-    messageInput.addEventListener('keypress', (e) => {
-      if (e.key === 'Enter' && !e.shiftKey) {
-        e.preventDefault();
-        sendButton.click();
       }
     });
   </script>
 </body>
-</html
+</html>
