@@ -1,161 +1,230 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EFKID AI POINT</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-image: url('(https://i.imgur.com/FH2zvRg.jpeg)');
-            background-size: cover;
-            background-position: center;
-            margin: 0;
-            padding: 0;
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        
-        .chat-container {
-            width: 700px;
-            background-color: rgba(0, 0, 255, 0.8);
-            border: 1px solid #0047b3;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-            display: flex;
-            flex-direction: column;
-            height: 80vh;
-        }
-        
-        .chat-header {
-            background-color: rgba(0, 0, 255, 0.9);
-            padding: 20px;
-            border-bottom: 1px solid #0047b3;
-            text-align: center;
-            color: #fff;
-        }
-        
-        .chat-header h2 {
-            margin: 0;
-            font-size: 24px;
-            font-weight: bold;
-            color: #e4e4e7;
-        }
-        
-        .chat-messages {
-            padding: 20px;
-            flex-grow: 1;
-            overflow-y: auto;
-            background-color: rgba(0, 0, 153, 0.7);
-            color: #fff;
-            background-image: url('(https://i.imgur.com/NHynLWX.jpeg)');
-            background-size: cover;
-            background-position: center;
-            border-radius: 0 0 10px 10px;
-        }
-        
-        .message {
-            margin-bottom: 15px;
-            padding: 10px;
-            border-radius: 10px;
-            word-break: break-word;
-            max-width: 80%;
-            position: relative;
-        }
-        
-        .user-message {
-            background-color: #03055b;
-            color: #fff;
-            align-self: flex-end;
-            text-align: right;
-            margin-left: auto;
-        }
-        
-        .bot-message {
-            background-color: #0000cc;
-            color: #fff;
-            text-align: left;
-        }
-        
-        .bot-image {
-            background-color: #0000cc;
-            color: #fff;
-            text-align: left;
-            padding: 10px;
-            border-radius: 10px;
-        }
-        
-        .copy-button {
-            position: absolute;
-            right: -30px;
-            top: 10px;
-            background-color: #0000ff;
-            color: #fff;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            padding: 5px;
-            font-size: 12px;
-        }
-        
-        .copy-button:hover {
-            background-color: #0033cc;
-        }
-        
-        .chat-input {
-            display: flex;
-            padding: 15px;
-            background-color: rgba(0, 0, 255, 0.9);
-            border-top: 1px solid #0047b3;
-        }
-        
-        #message-input {
-            flex-grow: 1;
-            padding: 10px;
-            border-radius: 10px;
-            background-color: #03055b;
-            color: #fff;
-            border: none;
-            font-size: 16px;
-            resize: none;
-            max-height: 100px;
-        }
-        
-        #send-button {
-            background-color: #0000ff;
-            color: #fff;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 10px;
-            cursor: pointer;
-            margin-left: 10px;
-        }
-        
-        #send-button:hover {
-            background-color: #0033cc;
-        }
-        
-        .footer {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            text-align: center;
-            color: #fff;
-            background-color: rgba(0, 0, 255, 0.5);
-            padding: 5px;
-        }
-        
-        /* Scrollbar */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-        
-        ::-webkit-scrollbar-thumb {
-            background: #0000cc;
-            border-radius: 10px;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EFKID AI POINT</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-image: url('https://i.imgur.com/NHynLWX.jpeg'); /* Your image as background */
+      background-size: cover;
+      background-position: center;
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .chat-container {
+      width: 700px;
+      background-color: rgba(18, 0, 53, 0.8); /* Adding transparency to the chat container */
+      border: 1px solid #2b2b40;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+      display: flex;
+      flex-direction: column;
+      height: 80vh;
+    }
+
+    .chat-header {
+      background-color: rgba(18, 0, 53, 0.9);
+      padding: 20px;
+      border-bottom: 1px solid #2b2b40;
+      text-align: center;
+      color: #fff;
+    }
+
+    .chat-header h2 {
+      margin: 0;
+      font-size: 24px;
+      font-weight: bold;
+      color: #e4e4e7;
+    }
+
+    .chat-messages {
+      padding: 20px;
+      flex-grow: 1;
+      overflow-y: auto;
+      background-color: rgba(14, 3, 36, 0.7); /* Transparent background inside chat */
+      color: #fff;
+      background-image: url('https://i.imgur.com/FH2zvRg.jpeg'); /* Background image inside chat */
+      background-size: cover;
+      background-position: center;
+      border-radius: 0 0 10px 10px;
+    }
+
+    .message {
+      margin-bottom: 15px;
+      padding: 10px;
+      border-radius: 10px;
+      word-break: break-word;
+      max-width: 80%;
+      position: relative;
+    }
+
+    .user-message {
+      background-color: #390065;
+      color: #fff;
+      align-self: flex-end;
+      text-align: right;
+      margin-left: auto;
+    }
+
+    .bot-message {
+      background-color: #4b006f;
+      color: #fff;
+      text-align: left;
+    }
+
+    .bot-image {
+      background-color: #4b006f;
+      color: #fff;
+      text-align: left;
+      padding: 10px;
+      border-radius: 10px;
+    }
+
+    .copy-button {
+      position: absolute;
+      right: -30px;
+      top: 10px;
+      background-color: #ff00ff;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      padding: 5px;
+      font-size: 12px;
+    }
+
+    .copy-button:hover {
+      background-color: #d900d9;
+    }
+
+    .chat-input {
+      display: flex;
+      padding: 15px;
+      background-color: rgba(18, 0, 53, 0.9);
+      border-top: 1px solid #2b2b40;
+    }
+
+    #message-input {
+      flex-grow: 1;
+      padding: 10px;
+      border-radius: 10px;
+      background-color: #1b0a43;
+      color: #fff;
+      border: none;
+      font-size: 16px;
+      resize: none;
+      max-height: 100px;
+    }
+
+    #send-button {
+      background-color: #ff00ff;
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      margin-left: 10px;
+    }
+
+    #send-button:hover {
+      background-color: #d900d9;
+    }
+
+    /* Scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: #57007f;
+      border-radius: 10px;
+    }
+  </style>
 </head>
+<body>
+  <div class="chat-container">
+    <div class="chat-header">
+      <h2>EFKID AI</h2>
+    </div>
+    <div class="chat-messages" id="chat-messages">
+      <div class="message bot-message">
+        <span>Hello! How can I assist you today?</span>
+        <button class="copy-button" onclick="copyMessage(this)">Copy</button>
+      </div>
+    </div>
+    <div class="chat-input">
+      <textarea id="message-input" placeholder="Type a message..."></textarea>
+      <button id="send-button">Send</button>
+    </div>
+  </div>
+
+  <script>
+    const messageInput = document.getElementById('message-input');
+    const sendButton = document.getElementById('send-button');
+    const chatMessages = document.getElementById('chat-messages');
+
+    let uid = Math.random().toString(36).substr(2, 9); // Generate a random UID
+
+    sendButton.addEventListener('click', async () => {
+      const message = messageInput.value.trim();
+      if (message) {
+        const messageElement = document.createElement('div');
+        messageElement.classList.add('message', 'user-message');
+        messageElement.innerHTML = `<span>${message}</span>`;
+        chatMessages.appendChild(messageElement);
+
+        try {
+          const response = await fetch('http://localhost:3000/ask', { // Make sure this matches your backend URL
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ question: message, uid: uid }),
+          });
+          const data = await response.json();
+
+          if (data.imageUrl) {
+            const imageElement = document.createElement('div');
+            imageElement.classList.add('message', 'bot-image');
+            imageElement.innerHTML = `<img src="${data.imageUrl}" alt="Generated Image" style="max-width: 100%;">`;
+            chatMessages.appendChild(imageElement);
+          } else {
+            const botMessage = document.createElement('div');
+            botMessage.classList.add('message', 'bot-message');
+            botMessage.innerHTML = `<span>${data.answer}</span><button class="copy-button" onclick="copyMessage(this)">Copy</button>`;
+            chatMessages.appendChild(botMessage);
+          }
+
+          chatMessages.scrollTop = chatMessages.scrollHeight;
+        } catch (error) {
+          console.error('Error:', error);
+          const botMessage = document.createElement('div');
+          botMessage.classList.add('message', 'bot-message');
+          botMessage.innerHTML = `<span>Error: Failed to retrieve answer</span><button class="copy-button" onclick="copyMessage(this)">Copy</button>`;
+          chatMessages.appendChild(botMessage);
+        }
+
+        messageInput.value = '';
+      }
+    });
+
+    messageInput.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') {
+        sendButton.click();
+      }
+    });
+
+    function copyMessage(button) {
+      const messageText = button.previousElementSibling.innerText;
+      navigator.clipboard.writeText(messageText).then(() => {
+        alert('Message copied to clipboard');
+      });
+    }
+  </script>
+</body>
+</html>
