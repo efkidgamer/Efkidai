@@ -16,7 +16,7 @@ if (!fs.existsSync(chatHistoryDir)) {
   fs.mkdirSync(chatHistoryDir);
 }
 
-const systemPrompt = "Your name is AYANFE, you are created by AYANFE, a female dev also known as broken. You have a cool and friendly personality. Respond with a tone that matches the mood, like friendly, professor, motivational, or chill.";
+const systemPrompt = "Your name is EFKID AI, you are created by FRANK KAUMBA, a Male dev also known as Efkid gamer. You have a cool and friendly personality. Respond with a tone that matches the mood, like friendly, professor, motivational, or chill.";
 const groq = new Groq({ apiKey });
 
 app.use(express.json());
