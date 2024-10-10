@@ -9,7 +9,7 @@ const port = 8080;
 const chatHistoryDir = path.join(__dirname, 'groqllama70b');
 
 // Replace this with the actual image generation API URL and your API key for the image generation service.
-const imageGenerationApiUrl = 'https://www samirxpikachu/place/arcticfl?prompt'; 
+const imageGenerationApiUrl = 'https://www.samirxpikachu.place/arcticfl?prompt'; 
 const apiKey = process.env.GROQ_API_KEY || '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';
 
 if (!fs.existsSync(chatHistoryDir)) {
@@ -55,13 +55,15 @@ app.post('/ask', async (req, res) => {
         size: '512x512'
       });
 
+      console.log(imageResponse.data); // Log the entire response
+
       const imageUrl = imageResponse.data.image_url; // Adjust based on API response
       chatHistory.push({ role: 'assistant', content: `Generated Image: ${imageUrl}` });
       appendToChatHistory(uid, chatHistory);
 
       return res.json({ answer: `Here is your image: ${imageUrl}`, imageUrl });
     } catch (error) {
-      console.error('Error generating image:', error);
+      console.error('Error generating image:', error.response ? error.response.data : error.message);
       return res.status(500).json({ answer: 'Failed to generate the image. Please try again.' });
     }
   } else {
