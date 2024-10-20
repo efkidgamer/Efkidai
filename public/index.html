@@ -1,230 +1,229 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" >
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>EFKID AI POINT</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-image: url('https://i.imgur.com/NHynLWX.jpeg'); /* Your image as background */
-      background-size: cover;
-      background-position: center;
-      margin: 0;
-      padding: 0;
-      height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
+  <title>NEXUS CODERS TEAM</title>
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-beta/css/bootstrap.min.css'>
+<link rel='stylesheet' href='//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'><link rel="stylesheet" href="./style.css">
 
-    .chat-container {
-      width: 700px;
-      background-color: rgba(18, 0, 53, 0.8); /* Adding transparency to the chat container */
-      border: 1px solid #2b2b40;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-      display: flex;
-      flex-direction: column;
-      height: 80vh;
-    }
-
-    .chat-header {
-      background-color: rgba(18, 0, 53, 0.9);
-      padding: 20px;
-      border-bottom: 1px solid #2b2b40;
-      text-align: center;
-      color: #fff;
-    }
-
-    .chat-header h2 {
-      margin: 0;
-      font-size: 24px;
-      font-weight: bold;
-      color: #e4e4e7;
-    }
-
-    .chat-messages {
-      padding: 20px;
-      flex-grow: 1;
-      overflow-y: auto;
-      background-color: rgba(14, 3, 36, 0.7); /* Transparent background inside chat */
-      color: #fff;
-      background-image: url('https://i.imgur.com/FH2zvRg.jpeg'); /* Background image inside chat */
-      background-size: cover;
-      background-position: center;
-      border-radius: 0 0 10px 10px;
-    }
-
-    .message {
-      margin-bottom: 15px;
-      padding: 10px;
-      border-radius: 10px;
-      word-break: break-word;
-      max-width: 80%;
-      position: relative;
-    }
-
-    .user-message {
-      background-color: #390065;
-      color: #fff;
-      align-self: flex-end;
-      text-align: right;
-      margin-left: auto;
-    }
-
-    .bot-message {
-      background-color: #4b006f;
-      color: #fff;
-      text-align: left;
-    }
-
-    .bot-image {
-      background-color: #4b006f;
-      color: #fff;
-      text-align: left;
-      padding: 10px;
-      border-radius: 10px;
-    }
-
-    .copy-button {
-      position: absolute;
-      right: -30px;
-      top: 10px;
-      background-color: #ff00ff;
-      color: #fff;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      padding: 5px;
-      font-size: 12px;
-    }
-
-    .copy-button:hover {
-      background-color: #d900d9;
-    }
-
-    .chat-input {
-      display: flex;
-      padding: 15px;
-      background-color: rgba(18, 0, 53, 0.9);
-      border-top: 1px solid #2b2b40;
-    }
-
-    #message-input {
-      flex-grow: 1;
-      padding: 10px;
-      border-radius: 10px;
-      background-color: #1b0a43;
-      color: #fff;
-      border: none;
-      font-size: 16px;
-      resize: none;
-      max-height: 100px;
-    }
-
-    #send-button {
-      background-color: #ff00ff;
-      color: #fff;
-      padding: 10px 20px;
-      border: none;
-      border-radius: 10px;
-      cursor: pointer;
-      margin-left: 10px;
-    }
-
-    #send-button:hover {
-      background-color: #d900d9;
-    }
-
-    /* Scrollbar */
-    ::-webkit-scrollbar {
-      width: 8px;
-    }
-
-    ::-webkit-scrollbar-thumb {
-      background: #57007f;
-      border-radius: 10px;
-    }
-  </style>
 </head>
 <body>
-  <div class="chat-container">
-    <div class="chat-header">
-      <h2>EFKID AI</h2>
-    </div>
-    <div class="chat-messages" id="chat-messages">
-      <div class="message bot-message">
-        <span>Hello! How can I assist you today?</span>
-        <button class="copy-button" onclick="copyMessage(this)">Copy</button>
-      </div>
-    </div>
-    <div class="chat-input">
-      <textarea id="message-input" placeholder="Type a message..."></textarea>
-      <button id="send-button">Send</button>
-    </div>
+<!-- partial:index.partial.html -->
+<body data-spy="scroll" data-target="#mainNav">
+<nav class="navbar navbar-expand-sm fixed-top navbar-toggleable-md" id="mainNav">
+
+  <div class="container">
+    <a class="navbar-brand" href="#home">NXS</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarIcon" aria-controls="navbarIcon" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="icon-bar"><i class="fa fa-caret-down" aria-hidden="true"></i> MENU</span>
+      </button>
+    <div class="collapse navbar-collapse" id="navbarIcon">
+     <div class="navbar-nav ml-auto">
+       <a class="nav-item active nav-link pr-4" href="#home">Home</a>
+       <a class="nav-item nav-link pr-4" href="#Ai page">Ai page</a>
+       <a class="nav-item nav-link pr-4" href="#portfolio">Portfolio</a>
+       <a class="nav-item nav-link pr-4" href="#contact">Contact</a>
+     </div> <!-- div navbar-nav -->
+    </div> <!-- navbarIcon collapse -->
+  </div>  <!-- div container -->
+</nav> <!-- nav -->
+  
+
+<header class="jumbotron jumbotron-fluid bg-info text-white text-center mb-5" id="home">
+  <div class="container mt-5 mb-5">
+    <div class="display-4 mt-4 mb-4">Hello,</div>
+    <div class="display-1 mt-5 mb-4">welcome to <span class="coloredFont">Nexus web</span></div>
+    <div> <i class="fa fa-angle-down fa-3 bounce" aria-hidden="true"></i> </div>
   </div>
+</header>
 
-  <script>
-    const messageInput = document.getElementById('message-input');
-    const sendButton = document.getElementById('send-button');
-    const chatMessages = document.getElementById('chat-messages');
+<div class="container">
+  <div class="row">
+    <section class="col-12 text-center" id="services"> 
+     <div class="container mb-5">
+       <div class="divider">
+        <h2 class="contentTitle display-3">Services</h2>
+       </div>
+        <p>See what we can do for you.</p>
+     </div> <!-- end containter --> 
+      
+    </section> <!-- end section -->
+  </div> <!-- end row -->
+</div> <!-- end container -->
+      
+<div class="container">
+ <div class="row text-center">
+  <section class="card mb-4 col-lg-4 col-md-6 col-sm-12 serviceCard">
+    <!--<img class="card-img-top img-fluid mb-3" src="https://inovaweb.co.nz/wp-content/uploads/2016/10/coffee-shop_header.jpg" alt="Coffee shop site"> -->
+    <i class="fa fa-cubes fa-5x mb-4 mt-5 fa-serv-icons" aria-hidden="true"></i>
+    <div class="card-block">
+      <div class="divider2 mb-4">
+       <h2 class="card-title card-title2">CHAT BOTS </h2>
+      </div>
+       <blockquote class="card-text mb-5">Feel free to try out automated bots on Facebook and WhatsApp </p>
+            
+    </div><!-- card-block -->
+  </section> <!-- card section -->
 
-    let uid = Math.random().toString(36).substr(2, 9); // Generate a random UID
+   <section class="card mb-4 col-lg-4 col-md-6 col-sm-12" id="webDesign">
+    <!-- <img class="card-img-top img-fluid mb-3" src="https://inovaweb.co.nz/wp-content/uploads/2016/12/tradegames.jpg" alt="Trade Games forum"> -->
+     <i class="fa fa-laptop fa-5x mb-4 mt-5 text-white" aria-hidden="true"></i>
+    <div class="card-block">
+      <div class="divider2 mb-4">
+       <h2 class="card-title card-title3">Web Ai</h2>
+      </div>
+      <blockquote class="card-text text-white mb-5">A you can have fun we our free plan Ai website called nexus Ai.</p>
+            
+    </div><!-- card-block -->
+  </section> <!-- card section -->
 
-    sendButton.addEventListener('click', async () => {
-      const message = messageInput.value.trim();
-      if (message) {
-        const messageElement = document.createElement('div');
-        messageElement.classList.add('message', 'user-message');
-        messageElement.innerHTML = `<span>${message}</span>`;
-        chatMessages.appendChild(messageElement);
+  <section class="card mb-4 col-lg-4 col-md-6 col-sm-12 serviceCard">
+    <!-- <img class="card-img-top img-fluid mb-3" src="https://inovaweb.co.nz/wp-content/uploads/2016/10/design_home_header.jpg" alt="Design team website"> -->
+    <i class="fa fa-wrench fa-5x mb-4 mt-5 fa-serv-icons" aria-hidden="true"></i>
+    <div class="card-block">
+      <div class="divider2 mb-4">
+       <h2 class="card-title card-title2" >Friendly</h2>
+      </div>
+      <blockquote class="card-text mb-5">you can be free to contact any of us and keep in touch with us through our whatsapp and YouTube channel .</p>
+         
+    </div><!-- card-block -->
+  </section> <!-- card section -->
+  
+ </div> <!-- end row -->  
+      <div class="row">
+       <section class="col-12 text-center">
+         <a class="btn btn-info mb-5 text-white" id="callToActionBtn" role="button" href="#contact">Contact us today</a>
+       </section>
+      </div>
+</div><!-- cards services container -->
 
-        try {
-          const response = await fetch('http://localhost:3000/ask', { // Make sure this matches your backend URL
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ question: message, uid: uid }),
-          });
-          const data = await response.json();
+<div class="container">
+  <div class="row">
+    <section class="col-12 text-center" id="portfolio"> 
+     <div class="container mb-5">
+       <div class="divider ">
+        <h2 class="contentTitle display-3">Nexus Portfolio</h2>
+       </div>
+     </div> <!-- end containter --> 
+      
+    </section> <!-- end section -->
+  </div> <!-- end row -->
+</div> <!-- end container -->
+      
+<div class="container">
+ <div class="row text-center">
+  <section class="card mb-5 col-lg-4 col-md-6 col-sm-12" id="coffeeshop">
+    <img class="card-img-top img-fluid mb-3" src="https://yourdomain.co.nz/wp-content/uploads/2016/10/coffee-shop_header.jpg" alt="github repo site">
+    <div class="card-block">
+      <h2 class="card-title">BOT REPO</h2>
+      <h5 class="card-subtitle mb-2">Whatsapp bot repo</h5>
+      <blockquote class="card-text">You will love this beautiful Bot. Clean, flexible, and effective.</p>
+            <a href="https://github.com/efkidgamer" class="btn btn-info" type="button" target="_blank">Visit Website</a>
+    </div><!-- card-block -->
+  </section> <!-- card section -->
 
-          if (data.imageUrl) {
-            const imageElement = document.createElement('div');
-            imageElement.classList.add('message', 'bot-image');
-            imageElement.innerHTML = `<img src="${data.imageUrl}" alt="Generated Image" style="max-width: 100%;">`;
-            chatMessages.appendChild(imageElement);
-          } else {
-            const botMessage = document.createElement('div');
-            botMessage.classList.add('message', 'bot-message');
-            botMessage.innerHTML = `<span>${data.answer}</span><button class="copy-button" onclick="copyMessage(this)">Copy</button>`;
-            chatMessages.appendChild(botMessage);
-          }
+   <section class="card mb-5 col-lg-4 col-md-6 col-sm-12" id="Whatsapp channel">
+    <img class="card-img-top img-fluid mb-3" src="https://yourdomain.co.nz/wp-content/uploads/2016/12/tradegames.jpg" alt="Whatsapp channel">
+    <div class="card-block">
+      <h2 class="card-title">Tutorial Nexus channel</h2>
+      <h5 class="card-subtitle mb-2">Follow for updates</h5>
+      <blockquote class="card-text">Ideal solution to engage with your nexus admins  and Learn lots of ideas.</p>
+            <a href="https://facebook.com/efkidtrapgamer" class="btn btn-info" type="button" target="_blank">Visit Website</a>
+    </div><!-- card-block -->
+  </section> <!-- card section -->
 
-          chatMessages.scrollTop = chatMessages.scrollHeight;
-        } catch (error) {
-          console.error('Error:', error);
-          const botMessage = document.createElement('div');
-          botMessage.classList.add('message', 'bot-message');
-          botMessage.innerHTML = `<span>Error: Failed to retrieve answer</span><button class="copy-button" onclick="copyMessage(this)">Copy</button>`;
-          chatMessages.appendChild(botMessage);
-        }
+  <section class="card mb-5 col-lg-4 col-md-6 col-sm-12" id="designteam">
+    <img class="card-img-top img-fluid mb-3" src="https://yourdomain.co.nz/wp-content/uploads/2016/10/design_home_header.jpg" alt="Design team website">
+    <div class="card-block">
+      <h2 class="card-title">Design Team</h2>
+      <h5 class="card-subtitle mb-2">Template</h5>
+      <blockquote class="card-text">Another amazing option for creative professionals.</p>
+        <a href="https://yourdomain.co.nz/design-team/" class="btn btn-info" type="button" target="_blank">Visit Website</a>
 
-        messageInput.value = '';
-      }
-    });
+    </div><!-- card-block -->
+  </section> <!-- card section -->
 
-    messageInput.addEventListener('keypress', (e) => {
-      if (e.key === 'Enter') {
-        sendButton.click();
-      }
-    });
+  
+ </div> <!-- end row -->  
+</div><!-- cards container -->  
 
-    function copyMessage(button) {
-      const messageText = button.previousElementSibling.innerText;
-      navigator.clipboard.writeText(messageText).then(() => {
-        alert('Message copied to clipboard');
-      });
-    }
-  </script>
+<!-- Contact form -->
+
+<div class="container">
+  <div class="row">
+    <section class="col-12 text-center"> 
+     <div class="container mt-5 mb-5" id="contact">
+       <div class="divider ">
+        <h2 class="contentTitle display-3">Contact</h2>
+       </div>
+        <p>Drop us a line today if you have an exciting project we will contact you soon.</p>
+     </div> <!-- end containter --> 
+      
+    </section> <!-- end section -->
+  </div> <!-- end row -->
+</div> <!-- end container -->
+
+<div class="container">
+  <div class="row justify-content-center align-self-center">
+    <section class="col-md-8"> 
+    <div class="container">
+    <form id="contact-form" method="post" action="contact.php" role="form">
+        <div class="messages"></div>
+        <div class="controls">
+            <div class="row">
+                <div class="col-md-6 contactForm1">
+                    <div class="form-group">
+                        <label for="form_name pr-3">Name</label>
+                        <input id="form_name" type="text" name="surname" class="form-control" placeholder="Your name" required="required" data-error="name is required.">
+                        <div class="help-block with-errors"></div>
+                    </div>
+                </div>
+                 <div class="col-md-6 contactForm2">
+                    <div class="form-group">
+                        <label for="form_email">Email</label>
+                        <input id="form_email" type="email" name="email" class="form-control" placeholder="Your email" required="required" data-error="Valid email is required.">
+                        <div class="help-block with-errors"></div>
+                    </div>
+                 </div>
+                </div> <!-- end row -->
+            </div> <!-- end controls -->
+        </div> <!-- end container -->
+        <div class="clearfix"></div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label for="form_message">Message</label>
+                    <textarea id="form_message" name="message" class="form-control" placeholder="Your message" rows="4" required="required" data-error="send a message."></textarea>
+                    <div class="help-block with-errors"></div>
+                </div>
+            </div>
+            <div class="col-md-12 mb-5 text-center">
+                <input type="submit" class="btn btn-info btn-send mb-4" value="Submit now">
+            </div>
+        </div>
+    </form> <!-- end contact form -->
+</div> <!-- end contact form container -->
+      
+    </section> <!-- contact form section -->
+  </div> <!-- contatct form row -->
+</div> <!-- contact form container -->
+
+<footer id="customFooter"><span id="footerText">&copy; 2024 Designed by <a href="http://facebook.com/efkidtrapgamer" target="_blank">Frank kaumba nexus</a></span>
+       <a href="https://Facebook.com/efkidtrapgamer" target="_blanket"> <i class="fa fa-codepen fa-3x socialIcons" aria-hidden="true"></i></a>
+    
+  </footer>
+
+</body>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js" type="text/javascript"></script>
+<script src="js/tether.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/scripts.js"></script>
+<!-- partial -->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script> src='https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-beta/js/bootstrap.min.js'></script><script  src="./script.js"></script>
+
 </body>
 </html>
